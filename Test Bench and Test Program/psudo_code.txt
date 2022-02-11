@@ -1,0 +1,23 @@
+# R3 -> element index
+# R4 -> element address
+# R7 -> current array element
+# R8 -> min value
+# R9 -> min index
+
+ad|
+00| addi R4, R0, 500
+01| addi R3, R0, 0
+02| addi R8, R0, 0
+03| addi R9, R0, 0
+04| lw   R8, 0(R4)
+05| lw   R7, 0(R4)
+06| cmp  R8, R7
+07| brLT 2
+08| add  R8, R7, R0
+09| add  R9, R3, R0
+10| addi R3, R3, 1
+11| addi R4, R4, 1
+12| cmp  R3, 10
+13| brLT -9
+14| sw   R8, 510(R0)
+15| sw   R9, 511(R0)
